@@ -74,7 +74,6 @@ function App() {
       other: ["Микросервисная архитектура", "REST API", "GraphQL", "SignalR"]
     },
     contacts: {
-      phone: "+7 985 133-32-24",
       email: "alexanderian76@gmail.com",
       github: "https://github.com/alexanderian76",
       telegram: "@AMalygin76"
@@ -104,7 +103,7 @@ function App() {
               {resumeData.location} • {resumeData.age} лет • Опыт: {resumeData.experience}
             </p>
             <div className="contact-links" style={{ justifyContent: "center" }}>
-              <a href={`tel:${resumeData.contacts.phone}`}>📞 {resumeData.contacts.phone}</a>
+              {resumeData.contacts.phone && <a href={`tel:${resumeData.contacts.phone}`}>📞 {resumeData.contacts.phone}</a>}
               <a href={`mailto:${resumeData.contacts.email}`}>📧 {resumeData.contacts.email}</a>
               <a href={resumeData.contacts.github} target="_blank" rel="noopener noreferrer">💻 GitHub</a>
               <a href={`https://t.me/${resumeData.contacts.telegram.slice(1)}`} target="_blank" rel="noopener noreferrer">📱 Telegram</a>
