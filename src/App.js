@@ -25,7 +25,7 @@ function App() {
     summary: ".NET разработчик с опытом 5+ лет. Специализируюсь на: C#, .NET Core, ASP.NET Core. Ключевые технологии: PostgreSQL, Oracle, Redis, Nats. Имею опыт проектирования микросервисной архитектуры. Писал unit-тесты (xUnit/NUnit), работал с Docker. Участвовал в ревью архитектуры и кода. Ищу проект со сложными, высоконагруженными задачами.",
     experienceDetails: [
       {
-        period: "Декабрь 2024 — Апрель 2026",
+        period: "Декабрь 2024 — Настоящее время",
         title: "Senior .NET Developer",
         company: "ДИТ",
         stack: ".NET Core, React, PostgreSQL, Nats",
@@ -114,7 +114,7 @@ function App() {
     },
     experienceDetails: [
       {
-        period: "December 2024 — April 2026",
+        period: "December 2024 — Now",
         title: "Senior .NET Developer",
         company: "DIT",
         stack: ".NET Core, React, PostgreSQL, Nats",
