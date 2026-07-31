@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
+
+  const startTimestamp = 1609516420
+  const secondsInYear = 31556952
+  const birthdayTimestamp = 826963361
+
   const [visible, setVisible] = useState(false);
+  const [old, setOld] = useState(0)
+  const [years, setYears] = useState(0)
+  const [months, setMonths] = useState(0)
   const [language, setLanguage] = useState(() => {
     const saved = localStorage.getItem('language');
     if (saved) return saved;
@@ -9,7 +17,12 @@ function App() {
   });
 
   useEffect(() => {
+    const years = (Math.floor(new Date().getTime() / 1000)  - startTimestamp) / secondsInYear
+    setYears(Math.floor(years))
+    setMonths(Math.floor (years % 12))
+    setOld(Math.floor((Math.floor(new Date().getTime() / 1000)  - birthdayTimestamp) / secondsInYear))
     setVisible(true);
+    
     localStorage.setItem('language', language);
   }, [language]);
 
@@ -18,11 +31,11 @@ function App() {
 
   const contentRu = {
     name: "Александр Малыгин",
-    age: "30 лет",
+    age: `${old} лет`,
     location: "Москва",
     role: "C#/.NET Developer",
-    experience: "Опыт: 5 лет 6 месяцев",
-    summary: ".NET разработчик с опытом 5+ лет. Специализируюсь на: C#, .NET Core, ASP.NET Core. Ключевые технологии: PostgreSQL, Oracle, Redis, Nats. Имею опыт проектирования микросервисной архитектуры. Писал unit-тесты (xUnit/NUnit), работал с Docker. Участвовал в ревью архитектуры и кода. Ищу проект со сложными, высоконагруженными задачами.",
+    experience: `Опыт: ${years} лет ${months} месяцев`,
+    summary: `.NET разработчик с опытом ${years}+ лет. Специализируюсь на: C#, .NET Core, ASP.NET Core. Ключевые технологии: PostgreSQL, Oracle, Redis, Nats. Имею опыт проектирования микросервисной архитектуры. Писал unit-тесты (xUnit/NUnit), работал с Docker. Участвовал в ревью архитектуры и кода. Ищу проект со сложными, высоконагруженными задачами.`,
     experienceDetails: [
       {
         period: "Декабрь 2024 — Настоящее время",
@@ -96,10 +109,10 @@ function App() {
   const contentEn = {
     name: "Alexander Malygin",
     role: "C#/.NET Developer",
-    age: "30 y.o.",
+    age: `${old} y.o.`,
     location: "Moscow",
-    experience: `Experience: 5 years 6 months`,
-    summary: ".NET developer with 5+ years of experience. Specialized in: C#, .NET Core, ASP.NET Core. Key technologies: PostgreSQL, Oracle, Redis, Nats. Experience in microservice architecture design. Wrote unit tests (xUnit/NUnit), worked with Docker. Participated in architecture and code reviews. Looking for a project with complex, high-load tasks.",
+    experience: `Experience: ${years} years ${months} months`,
+    summary: `.NET developer with ${years}+ years of experience. Specialized in: C#, .NET Core, ASP.NET Core. Key technologies: PostgreSQL, Oracle, Redis, Nats. Experience in microservice architecture design. Wrote unit tests (xUnit/NUnit), worked with Docker. Participated in architecture and code reviews. Looking for a project with complex, high-load tasks.`,
     sections: {
       about: "About me",
       experience: "Work experience",
